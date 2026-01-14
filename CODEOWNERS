@@ -1,0 +1,12 @@
+# 1520ai CODEOWNERS
+# This file defines the binding approval owners for governance and org-level standards.
+# In the event of conflict, CODEOWNERS is the source of truth for required approvals.
+
+# Default: require review from core maintainers for anything in this repo
+* @vp-ai-engineering @vp-technology-engineering
+
+# Governance & standards (explicit)
+docs/* @vp-ai-engineering @vp-technology-engineering
+CHANGELOG.md @vp-ai-engineering @vp-technology-engineering
+SECURITY.md @vp-ai-engineering @vp-technology-engineering
+CONTRIBUTING.md @vp-ai-engineering @vp-technology-engineering
