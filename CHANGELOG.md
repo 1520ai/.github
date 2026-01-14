@@ -80,30 +80,6 @@ Established foundational governance infrastructure to support audit defensibilit
 
 ---
 
-## [YYYY-MM-DD] — Template for Future Entries
-
-### Added | Changed | Removed
-
-- Short, concrete description of the change
-
-### Rationale
-
-- Why the change was necessary
-
-### Impact Assessment
-
-- Behavioral / Security / Regulatory / None
-
-### Affected Artifacts
-
-- List of files or documents
-
-### Approving Authority
-
-- Role(s), not individual names
-
----
-
 ## Exception Tracking
 
 Active and historical exceptions are tracked separately in:

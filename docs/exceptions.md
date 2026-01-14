@@ -47,41 +47,6 @@ Exceptions are not policy changes. They are controlled deviations granted to man
 
 **No active exceptions at this time.**
 
-(Add new entries below this line.)
-
----
-
-### Exception ID: EX-YYYY-001
-
-**Status:** Active
-
-**Affected Artifact(s):**
-- e.g., `docs/responsible-ai.md`, Product XYZ release gate
-
-**Decision Class(es):**
-- e.g., AI Behavior & Model Governance
-
-**Rationale:**
-Clear, concrete explanation of why the exception is necessary.
-
-**Scope:**
-What is affected and what is explicitly not affected.
-
-**Risk Assessment:**
-Summary of introduced risk and why it is acceptable temporarily.
-
-**Mitigations:**
-Controls or compensating safeguards in place during the exception.
-
-**Approval:**
-- Approving Authority: Role(s)
-- Approval PR: `#123`
-- Date Approved: YYYY-MM-DD
-
-**Expiration:**
-- Expiration Date: YYYY-MM-DD
-- Renewal Required: Yes / No
-
 ---
 
 ## Pending Renewal
@@ -96,32 +61,7 @@ Exceptions approaching expiration within 30 days.
 
 Expired exceptions are retained for audit and historical review.
 
----
-
-### Exception ID: EX-YYYY-000
-
-**Status:** Expired
-
-**Affected Artifact(s):**
-- e.g., Security policy XYZ
-
-**Decision Class(es):**
-- e.g., Security & Data Protection
-
-**Rationale:**
-Brief summary of why the exception existed.
-
-**Duration:**
-- Approved: YYYY-MM-DD
-- Expired: YYYY-MM-DD
-
-**Outcome:**
-- Baseline governance restored
-- Exception replaced by policy change / control tightening / system fix
-
-**Approval:**
-- Approving Authority: Role(s)
-- Approval PR: `#XYZ`
+**No expired exceptions at this time.**
 
 ---
 
