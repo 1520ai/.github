@@ -1,0 +1,96 @@
+name: Governance Change Proposal
+description: Propose a change to governance, security, or Responsible AI standards
+labels: ["governance", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Governance Change Proposal
+
+        Use this template to propose changes to organization-level governance artifacts.
+
+        Before submitting, please review:
+        - [docs/governance.md](../docs/governance.md) — Authority and precedence
+        - [docs/change-control.md](../docs/change-control.md) — Change process
+        - [CONTRIBUTING.md](../CONTRIBUTING.md) — Contribution requirements
+
+  - type: dropdown
+    id: change-type
+    attributes:
+      label: Change Type
+      description: Classify this change per docs/change-control.md
+      options:
+        - Policy Change — Introduces, removes, or materially alters a rule or constraint
+        - Control Tightening — Increases enforcement, scope, or rigor without reducing safeguards
+        - Clarification — Improves precision without changing intent
+        - Exception — Temporarily deviates from an existing rule
+    validations:
+      required: true
+
+  - type: dropdown
+    id: decision-class
+    attributes:
+      label: Decision Class
+      description: Which decision class does this affect? (per docs/governance.md)
+      multiple: true
+      options:
+        - Regulatory & Compliance
+        - Security & Data Protection
+        - AI Behavior & Model Governance
+        - Engineering & Implementation
+    validations:
+      required: true
+
+  - type: textarea
+    id: affected-artifacts
+    attributes:
+      label: Affected Artifacts
+      description: Which documents or artifacts will this change affect?
+      placeholder: |
+        - docs/governance.md
+        - docs/responsible-ai.md
+        - SECURITY.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Change
+      description: Describe the change you are proposing
+      placeholder: Clearly describe what you want to add, modify, or remove
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale
+      description: Why is this change necessary?
+      placeholder: Explain the problem this solves or the improvement it provides
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact Assessment
+      description: What is the expected impact of this change?
+      placeholder: |
+        - Behavioral impact:
+        - Security impact:
+        - Regulatory impact:
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: acknowledgments
+    attributes:
+      label: Acknowledgments
+      options:
+        - label: I have reviewed the relevant governance documents
+          required: true
+        - label: I understand this change requires CODEOWNERS approval
+          required: true
+        - label: I will update CHANGELOG.md as part of the PR
+          required: true

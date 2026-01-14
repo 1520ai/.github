@@ -1,0 +1,101 @@
+name: Exception Request
+description: Request a temporary deviation from governance standards
+labels: ["exception", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Exception Request
+
+        Use this template to request a temporary, time-bounded deviation from baseline governance.
+
+        Exceptions are not shortcuts. They exist to manage real-world constraints, not to bypass governance.
+
+        Before submitting, please review:
+        - [docs/governance.md](../docs/governance.md) — Exception requirements
+        - [docs/change-control.md](../docs/change-control.md) — Exception lifecycle
+        - [docs/exceptions.md](../docs/exceptions.md) — Current exception registry
+
+  - type: dropdown
+    id: decision-class
+    attributes:
+      label: Decision Class
+      description: Which decision class does this exception affect?
+      multiple: true
+      options:
+        - Regulatory & Compliance
+        - Security & Data Protection
+        - AI Behavior & Model Governance
+        - Engineering & Implementation
+    validations:
+      required: true
+
+  - type: textarea
+    id: affected-artifacts
+    attributes:
+      label: Affected Artifact(s)
+      description: Which governance rules or artifacts does this exception deviate from?
+      placeholder: |
+        - docs/responsible-ai.md, Section 7
+        - SECURITY.md, PHI handling requirements
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale
+      description: Why is this exception necessary? What real-world constraint requires it?
+      placeholder: Explain clearly why baseline governance cannot be followed in this case
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What is affected and what is explicitly NOT affected?
+      placeholder: |
+        Affected: [specific system, feature, or process]
+        Not affected: [related items that remain under baseline governance]
+    validations:
+      required: true
+
+  - type: textarea
+    id: risk-assessment
+    attributes:
+      label: Risk Assessment
+      description: What risks does this exception introduce?
+      placeholder: Describe the security, regulatory, or operational risks
+    validations:
+      required: true
+
+  - type: textarea
+    id: mitigations
+    attributes:
+      label: Mitigations
+      description: What compensating controls or safeguards will be in place during the exception?
+      placeholder: Describe how risks will be managed during the exception period
+    validations:
+      required: true
+
+  - type: input
+    id: expiration
+    attributes:
+      label: Requested Expiration Date
+      description: When should this exception expire? (Format YYYY-MM-DD)
+      placeholder: "2026-03-31"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: acknowledgments
+    attributes:
+      label: Acknowledgments
+      options:
+        - label: I understand exceptions expire by default unless explicitly renewed
+          required: true
+        - label: I will ensure this exception is documented in docs/exceptions.md
+          required: true
+        - label: I understand undocumented exceptions are treated as invalid
+          required: true

@@ -1,0 +1,70 @@
+name: Changelog Validation
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+
+jobs:
+  check-changelog:
+    name: Check Changelog Updated
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check if changelog skip label is present
+        id: skip-check
+        run: |
+          if [[ "${{ contains(github.event.pull_request.labels.*.name, 'skip-changelog') }}" == "true" ]]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check for governance file changes
+        id: governance-files
+        if: steps.skip-check.outputs.skip == 'false'
+        run: |
+          # Get list of changed files
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+
+          # Check if any governance files are modified
+          GOVERNANCE_CHANGED=false
+          for file in $CHANGED_FILES; do
+            case "$file" in
+              docs/*.md|SECURITY.md|CONTRIBUTING.md|CODEOWNERS)
+                GOVERNANCE_CHANGED=true
+                break
+                ;;
+            esac
+          done
+
+          echo "governance_changed=$GOVERNANCE_CHANGED" >> $GITHUB_OUTPUT
+          echo "Changed governance files: $GOVERNANCE_CHANGED"
+
+      - name: Check changelog was updated
+        if: steps.skip-check.outputs.skip == 'false' && steps.governance-files.outputs.governance_changed == 'true'
+        run: |
+          # Check if CHANGELOG.md was modified
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+
+          if echo "$CHANGED_FILES" | grep -q "^CHANGELOG.md$"; then
+            echo "CHANGELOG.md was updated"
+          else
+            echo "::error::Governance files were modified but CHANGELOG.md was not updated."
+            echo "::error::Per CONTRIBUTING.md, all governance changes require a changelog entry."
+            echo "::error::Add 'skip-changelog' label only for trivial non-governance changes."
+            exit 1
+          fi
+
+      - name: Success message
+        if: steps.skip-check.outputs.skip == 'true' || steps.governance-files.outputs.governance_changed == 'false'
+        run: |
+          if [[ "${{ steps.skip-check.outputs.skip }}" == "true" ]]; then
+            echo "Changelog check skipped via label"
+          else
+            echo "No governance files changed, changelog update not required"
+          fi

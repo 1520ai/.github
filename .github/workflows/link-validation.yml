@@ -1,0 +1,29 @@
+name: Link Validation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.md"
+  pull_request:
+    branches: [main]
+    paths:
+      - "**.md"
+
+jobs:
+  check-links:
+    name: Check Markdown Links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check internal links
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: "yes"
+          use-verbose-mode: "yes"
+          config-file: ".github/workflows/mlc-config.json"
+          folder-path: "."
+          file-extension: ".md"
+          check-modified-files-only: ${{ github.event_name == 'pull_request' && 'yes' || 'no' }}

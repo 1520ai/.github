@@ -1,0 +1,71 @@
+name: Security Concern (Non-Vulnerability)
+description: Report a security concern that is NOT an active vulnerability
+labels: ["security", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Security Concern
+
+        Use this template for security-related concerns that are **NOT active vulnerabilities**.
+
+        **For active vulnerabilities or suspected PHI exposure:**
+        - Email security@1520.ai directly
+        - Do NOT open a public issue
+        - See [SECURITY.md](../SECURITY.md) for escalation procedures
+
+        This template is for:
+        - Security policy clarifications
+        - Control improvement suggestions
+        - Non-urgent security architecture discussions
+
+  - type: dropdown
+    id: concern-type
+    attributes:
+      label: Concern Type
+      description: What type of security concern is this?
+      options:
+        - Policy clarification needed
+        - Control improvement suggestion
+        - Security architecture discussion
+        - Documentation gap
+        - Process improvement
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the security concern
+      placeholder: Provide a clear description of the concern
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What is the context or background for this concern?
+      placeholder: Explain why this is relevant and how it was identified
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested Improvement
+      description: If you have a suggestion, describe it here
+      placeholder: Optional - describe how this could be addressed
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: This is NOT an active vulnerability or suspected PHI exposure
+          required: true
+        - label: I have reviewed SECURITY.md for escalation guidance
+          required: true
