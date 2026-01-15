@@ -58,6 +58,22 @@ The following documents define binding constraints and must be followed.
 - **[SECURITY.md](../SECURITY.md)** (repo root)
   Defines security reporting, escalation, and incident handling.
 
+### AI Systems
+
+- **[ai-release-gates.md](ai-release-gates.md)**
+  Defines mandatory validation gates for AI system production deployment.
+
+### Operations
+
+- **[incident-response.md](incident-response.md)**
+  Defines incident escalation, response process, and post-mortem requirements.
+
+- **[data-protection.md](data-protection.md)**
+  Defines data handling, PHI boundaries, and privacy requirements.
+
+- **[engineering-operating-standards.md](engineering-operating-standards.md)**
+  Defines technical standards for all contributors.
+
 ---
 
 ## Enforcement Artifacts (Root-Level)
@@ -81,8 +97,10 @@ New team members working with governance, security, or AI systems SHOULD read:
 1. **[governance.md](governance.md)** — authority and non-negotiables
 2. **[change-control.md](change-control.md)** — how changes happen
 3. **[responsible-ai.md](responsible-ai.md)** — AI posture and constraints
-4. **[SECURITY.md](../SECURITY.md)** — security expectations and escalation
-5. **[exceptions.md](exceptions.md)** — current deviations from baseline
+4. **[ai-release-gates.md](ai-release-gates.md)** — AI deployment requirements
+5. **[incident-response.md](incident-response.md)** — incident handling process
+6. **[SECURITY.md](../SECURITY.md)** — security expectations and escalation
+7. **[exceptions.md](exceptions.md)** — current deviations from baseline
 
 ---
 
@@ -93,6 +111,9 @@ New team members working with governance, security, or AI systems SHOULD read:
 | `governance.md` | Authority & precedence |
 | `change-control.md` | Process & mechanics |
 | `responsible-ai.md` | AI intent & posture |
+| `ai-release-gates.md` | AI deployment validation |
+| `incident-response.md` | Incident handling & learning |
+| `data-protection.md` | Data & privacy requirements |
 | `SECURITY.md` | Security escalation |
 | `exceptions.md` | Exception registry |
 | `CHANGELOG.md` | Historical record |
@@ -110,8 +131,10 @@ If a change affects:
 | Authority, obligations, or constraints | `governance.md` |
 | Process or exception mechanics | `change-control.md` |
 | AI behavior or risk posture | `responsible-ai.md` |
+| AI deployment or release process | `ai-release-gates.md` |
+| Incident handling or escalation | `incident-response.md` |
 | Security handling | `SECURITY.md` |
-| Temporary deviations | `EXCEPTIONS.md` |
+| Temporary deviations | `exceptions.md` |
 | Any binding document | `CHANGELOG.md` |
 
 ---

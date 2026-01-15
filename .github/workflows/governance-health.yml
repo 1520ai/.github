@@ -1,0 +1,240 @@
+name: Governance Health Check
+
+on:
+  # Run weekly to catch drift
+  schedule:
+    - cron: '0 9 * * 1'  # Every Monday at 9am UTC
+
+  # Run on PRs touching governance files
+  pull_request:
+    paths:
+      - 'docs/**'
+      - 'CODEOWNERS'
+      - 'SECURITY.md'
+      - 'CONTRIBUTING.md'
+      - 'CHANGELOG.md'
+      - '.github/workflows/governance-health.yml'
+
+  # Allow manual trigger
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-governance:
+    name: Validate Governance Artifacts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check required governance files exist
+        run: |
+          echo "Checking required governance files..."
+
+          REQUIRED_FILES=(
+            "docs/governance.md"
+            "docs/change-control.md"
+            "docs/responsible-ai.md"
+            "docs/data-protection.md"
+            "docs/exceptions.md"
+            "docs/index.md"
+            "docs/ai-release-gates.md"
+            "docs/incident-response.md"
+            "SECURITY.md"
+            "CONTRIBUTING.md"
+            "CODEOWNERS"
+            "CHANGELOG.md"
+          )
+
+          MISSING=0
+          for file in "${REQUIRED_FILES[@]}"; do
+            if [[ ! -f "$file" ]]; then
+              echo "::error::Required governance file missing: $file"
+              MISSING=1
+            else
+              echo "✓ $file exists"
+            fi
+          done
+
+          if [[ $MISSING -eq 1 ]]; then
+            exit 1
+          fi
+
+          echo "All required governance files present."
+
+      - name: Validate CODEOWNERS format
+        run: |
+          echo "Validating CODEOWNERS file..."
+
+          if [[ ! -f "CODEOWNERS" ]]; then
+            echo "::error::CODEOWNERS file not found"
+            exit 1
+          fi
+
+          # Check that CODEOWNERS is not empty (excluding comments and blank lines)
+          OWNERS=$(grep -v '^#' CODEOWNERS | grep -v '^$' | wc -l)
+          if [[ $OWNERS -eq 0 ]]; then
+            echo "::error::CODEOWNERS file has no owner definitions"
+            exit 1
+          fi
+
+          echo "✓ CODEOWNERS has $OWNERS owner definition(s)"
+
+          # Check that critical paths have owners
+          CRITICAL_PATHS=(
+            "docs/"
+            "SECURITY.md"
+            "CONTRIBUTING.md"
+          )
+
+          for path in "${CRITICAL_PATHS[@]}"; do
+            if ! grep -q "$path" CODEOWNERS; then
+              echo "::warning::Critical path '$path' not explicitly listed in CODEOWNERS (may inherit from wildcard)"
+            fi
+          done
+
+          echo "CODEOWNERS validation complete."
+
+      - name: Check docs/index.md references
+        run: |
+          echo "Validating index.md cross-references..."
+
+          # Extract markdown links from index.md that point to local files
+          LINKS=$(grep -oE '\[.*?\]\(((?!http)[^)]+\.md)\)' docs/index.md | grep -oE '\(([^)]+)\)' | tr -d '()' || true)
+
+          if [[ -z "$LINKS" ]]; then
+            echo "No local markdown links found in index.md"
+            exit 0
+          fi
+
+          BROKEN=0
+          for link in $LINKS; do
+            # Resolve relative to docs/ directory
+            if [[ "$link" == ../* ]]; then
+              # Link goes up from docs/
+              TARGET="${link#../}"
+            else
+              # Link is relative to docs/
+              TARGET="docs/$link"
+            fi
+
+            if [[ ! -f "$TARGET" ]]; then
+              echo "::error::Broken link in docs/index.md: $link (resolved to $TARGET)"
+              BROKEN=1
+            else
+              echo "✓ $link -> $TARGET"
+            fi
+          done
+
+          if [[ $BROKEN -eq 1 ]]; then
+            exit 1
+          fi
+
+          echo "All index.md cross-references valid."
+
+      - name: Validate exceptions registry structure
+        run: |
+          echo "Validating exceptions registry..."
+
+          EXCEPTIONS_FILE="docs/exceptions.md"
+
+          if [[ ! -f "$EXCEPTIONS_FILE" ]]; then
+            echo "::error::Exceptions registry not found: $EXCEPTIONS_FILE"
+            exit 1
+          fi
+
+          # Check if there are any exception entries (tables with | characters after the header)
+          # Skip the file header and look for table rows
+          EXCEPTION_COUNT=$(grep -E '^\|[^-]' "$EXCEPTIONS_FILE" | grep -v 'Exception ID' | grep -v 'Field' | wc -l || echo "0")
+
+          echo "Found $EXCEPTION_COUNT potential exception entries"
+
+          # If there are exceptions, validate they have required fields
+          if [[ $EXCEPTION_COUNT -gt 0 ]]; then
+            echo "Checking exception entry structure..."
+
+            # Check for expiration dates in any exception entries
+            if ! grep -qi 'expir' "$EXCEPTIONS_FILE"; then
+              echo "::warning::Exceptions exist but no expiration information found"
+            fi
+          else
+            echo "✓ No active exceptions in registry (or registry is empty)"
+          fi
+
+          echo "Exceptions registry validation complete."
+
+      - name: Check for governance document status markers
+        run: |
+          echo "Checking governance documents have status markers..."
+
+          DOCS=(
+            "docs/governance.md"
+            "docs/change-control.md"
+            "docs/responsible-ai.md"
+            "docs/data-protection.md"
+            "docs/ai-release-gates.md"
+            "docs/incident-response.md"
+            "SECURITY.md"
+            "CONTRIBUTING.md"
+          )
+
+          MISSING_STATUS=0
+          for doc in "${DOCS[@]}"; do
+            if [[ -f "$doc" ]]; then
+              if grep -qi "status.*active\|status.*draft\|status.*deprecated" "$doc"; then
+                echo "✓ $doc has status marker"
+              else
+                echo "::warning::$doc may be missing status marker"
+                MISSING_STATUS=1
+              fi
+            fi
+          done
+
+          if [[ $MISSING_STATUS -eq 1 ]]; then
+            echo "Some documents may be missing status markers. Please verify."
+          fi
+
+          echo "Status marker check complete."
+
+      - name: Validate changelog has entries
+        run: |
+          echo "Validating changelog..."
+
+          if [[ ! -f "CHANGELOG.md" ]]; then
+            echo "::error::CHANGELOG.md not found"
+            exit 1
+          fi
+
+          # Check that changelog has at least one dated entry
+          if ! grep -qE '^\#\#\s*\[?[0-9]{4}-[0-9]{2}-[0-9]{2}' CHANGELOG.md; then
+            echo "::warning::CHANGELOG.md may not have any dated entries"
+          else
+            echo "✓ CHANGELOG.md has dated entries"
+          fi
+
+          # Check for Unreleased section
+          if grep -q '\[Unreleased\]' CHANGELOG.md; then
+            echo "✓ CHANGELOG.md has Unreleased section"
+          fi
+
+          echo "Changelog validation complete."
+
+      - name: Summary
+        run: |
+          echo ""
+          echo "================================"
+          echo "Governance Health Check Complete"
+          echo "================================"
+          echo ""
+          echo "All critical validations passed."
+          echo ""
+          echo "This workflow validates:"
+          echo "  • Required governance files exist"
+          echo "  • CODEOWNERS file is properly configured"
+          echo "  • Cross-references in index.md are valid"
+          echo "  • Exceptions registry structure"
+          echo "  • Documents have status markers"
+          echo "  • Changelog has proper entries"
