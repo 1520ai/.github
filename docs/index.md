@@ -79,11 +79,19 @@ The following documents define binding constraints and must be followed.
 - **[incident-response.md](incident-response.md)**
   Defines incident escalation, response process, and post-mortem requirements.
 
+- **[business-continuity.md](business-continuity.md)**
+  Defines business continuity and disaster recovery requirements.
+
 - **[data-protection.md](data-protection.md)**
   Defines data handling, PHI boundaries, and privacy requirements.
 
 - **[engineering-operating-standards.md](engineering-operating-standards.md)**
   Defines technical standards for all contributors.
+
+### Personnel & Training
+
+- **[training-awareness.md](training-awareness.md)**
+  Defines training requirements, onboarding, and awareness programs.
 
 ### Third-Party & Vendors
 
@@ -94,6 +102,9 @@ The following documents define binding constraints and must be followed.
 
 - **[audit-coordination.md](audit-coordination.md)**
   Defines audit preparation, finding management, and compliance attestation.
+
+- **[governance-metrics.md](governance-metrics.md)**
+  Defines governance KPIs, metrics, and reporting requirements.
 
 ---
 
@@ -137,9 +148,12 @@ New team members working with governance, security, or AI systems SHOULD read:
 | `ai-security.md` | AI/LLM threat defense |
 | `data-lineage.md` | Data provenance & lineage |
 | `incident-response.md` | Incident handling & learning |
+| `business-continuity.md` | BC/DR requirements |
 | `data-protection.md` | Data & privacy requirements |
+| `training-awareness.md` | Personnel training & awareness |
 | `vendor-management.md` | Third-party governance |
 | `audit-coordination.md` | Audit & compliance |
+| `governance-metrics.md` | KPIs & reporting |
 | `SECURITY.md` | Security escalation |
 | `exceptions.md` | Exception registry |
 | `CHANGELOG.md` | Historical record |
@@ -162,8 +176,11 @@ If a change affects:
 | AI/LLM security requirements | `ai-security.md` |
 | Data provenance or lineage | `data-lineage.md` |
 | Incident handling or escalation | `incident-response.md` |
+| Business continuity or disaster recovery | `business-continuity.md` |
+| Training or awareness requirements | `training-awareness.md` |
 | Vendor or third-party relationships | `vendor-management.md` |
 | Audit or compliance processes | `audit-coordination.md` |
+| Governance metrics or KPIs | `governance-metrics.md` |
 | Security handling | `SECURITY.md` |
 | Temporary deviations | `exceptions.md` |
 | Any binding document | `CHANGELOG.md` |
