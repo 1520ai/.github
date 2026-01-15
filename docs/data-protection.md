@@ -235,7 +235,7 @@ In the event of conflict:
 Temporary deviations from this policy:
 
 - Require formal approval
-- Must be documented in [docs/EXCEPTIONS.md](EXCEPTIONS.md)
+- Must be documented in [docs/exceptions.md](exceptions.md)
 - Must be time-bounded and justified
 
 **Undocumented deviations are considered non-compliant.**

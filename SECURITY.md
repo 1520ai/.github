@@ -203,7 +203,7 @@ Emergency changes:
 
 - Authority and precedence are defined in [docs/governance.md](docs/governance.md)
 - Change and exception handling follow [docs/change-control.md](docs/change-control.md)
-- Active exceptions are tracked in [docs/EXCEPTIONS.md](docs/EXCEPTIONS.md)
+- Active exceptions are tracked in [docs/exceptions.md](docs/exceptions.md)
 
 **Security controls protect the system; they do not redefine what the system is allowed to decide.**
 

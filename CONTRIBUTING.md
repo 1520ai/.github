@@ -83,7 +83,7 @@ Every PR MUST include:
 - Links to affected documents
 - Required documentation updates:
   - `CHANGELOG.md` (mandatory for all non-trivial changes)
-  - `docs/EXCEPTIONS.md` (if an exception is introduced or modified)
+  - `docs/exceptions.md` (if an exception is introduced or modified)
 
 A pull request template is available at [.github/PULL_REQUEST_TEMPLATE/](.github/PULL_REQUEST_TEMPLATE/) to guide contributors through these requirements.
 
@@ -141,7 +141,7 @@ Exceptions are not shortcuts.
 
 If a PR introduces an exception:
 
-- It MUST be documented in [docs/EXCEPTIONS.md](docs/EXCEPTIONS.md)
+- It MUST be documented in [docs/exceptions.md](docs/exceptions.md)
 - It MUST include:
   - Rationale
   - Scope
