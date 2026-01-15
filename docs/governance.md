@@ -47,18 +47,18 @@ Where decisions span multiple classes, joint authority applies (see [Cross-Cutti
 
 ### 1. Regulatory & Compliance Decisions
 
-**Examples**
+#### Examples
 
 - Interpretation of regulatory requirements
 - Definition of regulatory hard stops
 - Audit defensibility thresholds
 
-**Authority**
+#### Authority
 
 - Compliance leadership
 - Clinical governance leadership
 
-**Rules**
+#### Rules
 
 - MUST be documented
 - MUST be traceable to regulatory source
@@ -66,18 +66,18 @@ Where decisions span multiple classes, joint authority applies (see [Cross-Cutti
 
 ### 2. Security & Data Protection Decisions
 
-**Examples**
+#### Examples
 
 - PHI boundaries
 - Encryption, access control, and audit logging
 - Data movement and retention rules
 
-**Authority**
+#### Authority
 
 - Security leadership
 - Engineering leadership (joint)
 
-**Rules**
+#### Rules
 
 - Security controls are non-optional
 - Convenience is not a valid exception criterion
@@ -85,19 +85,19 @@ Where decisions span multiple classes, joint authority applies (see [Cross-Cutti
 
 ### 3. AI Behavior & Model Governance
 
-**Examples**
+#### Examples
 
 - Model deployment approval
 - Determinism and stability requirements
 - Human-in-the-loop enforcement
 - Drift detection and response
 
-**Authority**
+#### Authority
 
 - AI Engineering leadership
 - Product governance (where applicable)
 
-**Rules**
+#### Rules
 
 - Models MUST be explainable at decision time
 - Silent adaptation is prohibited
@@ -105,18 +105,18 @@ Where decisions span multiple classes, joint authority applies (see [Cross-Cutti
 
 ### 4. Engineering & Implementation Decisions
 
-**Examples**
+#### Examples
 
 - Language and framework selection
 - Architecture patterns
 - Internal APIs and tooling
 
-**Authority**
+#### Authority
 
 - Engineering leadership
 - Repository owners (CODEOWNERS)
 
-**Rules**
+#### Rules
 
 - MUST conform to higher-level constraints
 - MAY vary by product or repository
