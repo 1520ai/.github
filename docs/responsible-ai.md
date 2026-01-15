@@ -103,7 +103,7 @@ Low consensus constrains deployment and favors caution.
 All AI capabilities are evaluated using the following decision model:
 
 | Sensitivity | Consensus | Guidance |
-|-------------|-----------|----------|
+| ----------- | --------- | -------- |
 | Low | High | **Standardize** |
 | Low | Low | **Explore** |
 | High | High | **Handle With Care** |

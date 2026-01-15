@@ -28,7 +28,7 @@ As such, contributions here are treated as **control-plane changes**, not ordina
 All changes MUST be classified into one of the following categories, as defined in [docs/change-control.md](docs/change-control.md):
 
 | Type | Description |
-|------|-------------|
+| ---- | ----------- |
 | **Policy Change** | Alters authority, obligations, or constraints |
 | **Control Tightening** | Adds or strengthens safeguards without expanding scope |
 | **Clarification** | Improves wording without changing meaning or authority |

@@ -88,7 +88,7 @@ All internal security concerns MUST be reported via one of the following:
 
 ### External Reporting
 
-**Email:** security@1520.ai
+**Email:** <security@1520.ai>
 
 Please include:
 

@@ -50,7 +50,7 @@ Purely editorial changes that do not alter meaning MAY be fast-tracked.
 All proposed changes fall into one of the following categories:
 
 | Type | Description | Review Requirement |
-|------|-------------|-------------------|
+| ---- | ----------- | ------------------ |
 | **Policy Change** | Introduces, removes, or materially alters a rule or constraint. | Always requires full review. |
 | **Control Tightening** | Increases enforcement, scope, or rigor without reducing safeguards. | Requires review; typically lower risk. |
 | **Clarification** | Improves precision without changing intent. | Requires documentation and approval. |
@@ -113,7 +113,7 @@ All governed changes are logged in `CHANGELOG.md`.
 Each entry MUST include:
 
 | Field | Description |
-|-------|-------------|
+| ----- | ----------- |
 | Date | When the change was approved |
 | Artifact(s) affected | Which document(s) changed |
 | Change type | Policy, control tightening, clarification, or exception |
