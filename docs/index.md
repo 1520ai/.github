@@ -58,6 +58,9 @@ The following documents define binding constraints and must be followed.
 - **[SECURITY.md](../SECURITY.md)** (repo root)
   Defines security reporting, escalation, and incident handling.
 
+- **[ai-security.md](ai-security.md)**
+  Defines AI-specific security requirements including LLM threat defense.
+
 ### AI Systems
 
 - **[ai-release-gates.md](ai-release-gates.md)**
@@ -81,6 +84,16 @@ The following documents define binding constraints and must be followed.
 
 - **[engineering-operating-standards.md](engineering-operating-standards.md)**
   Defines technical standards for all contributors.
+
+### Third-Party & Vendors
+
+- **[vendor-management.md](vendor-management.md)**
+  Defines vendor qualification, BAA requirements, and third-party governance.
+
+### Compliance & Audit
+
+- **[audit-coordination.md](audit-coordination.md)**
+  Defines audit preparation, finding management, and compliance attestation.
 
 ---
 
@@ -121,9 +134,12 @@ New team members working with governance, security, or AI systems SHOULD read:
 | `responsible-ai.md` | AI intent & posture |
 | `ai-release-gates.md` | AI deployment validation |
 | `model-registry.md` | AI model tracking |
+| `ai-security.md` | AI/LLM threat defense |
 | `data-lineage.md` | Data provenance & lineage |
 | `incident-response.md` | Incident handling & learning |
 | `data-protection.md` | Data & privacy requirements |
+| `vendor-management.md` | Third-party governance |
+| `audit-coordination.md` | Audit & compliance |
 | `SECURITY.md` | Security escalation |
 | `exceptions.md` | Exception registry |
 | `CHANGELOG.md` | Historical record |
@@ -143,8 +159,11 @@ If a change affects:
 | AI behavior or risk posture | `responsible-ai.md` |
 | AI deployment or release process | `ai-release-gates.md` |
 | AI model tracking or governance | `model-registry.md` |
+| AI/LLM security requirements | `ai-security.md` |
 | Data provenance or lineage | `data-lineage.md` |
 | Incident handling or escalation | `incident-response.md` |
+| Vendor or third-party relationships | `vendor-management.md` |
+| Audit or compliance processes | `audit-coordination.md` |
 | Security handling | `SECURITY.md` |
 | Temporary deviations | `exceptions.md` |
 | Any binding document | `CHANGELOG.md` |
