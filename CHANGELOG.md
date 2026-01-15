@@ -39,6 +39,36 @@ Entries should be written in past tense (e.g., "Defined..." not "Define...").
 
 ---
 
+## [2026-01-15] — README Comprehensive Update
+
+### Changed
+
+- **README.md Overhaul**
+  - Added reference to docs/index.md as authoritative document catalog
+  - Updated document listing to include all 19 governance artifacts
+  - Added governance framework overview with categorized document tables
+  - Updated onboarding path to include ai-release-gates, incident-response, training
+  - Added AI Release Gates summary with 6 mandatory gates
+  - Added Automated Governance section documenting CI workflows
+  - Updated status from "evolving" to "active and binding"
+  - Removed outdated placeholder language
+
+### Rationale
+
+README was out of date with the comprehensive governance framework. Updated to accurately reflect current state and provide clear entry points to documentation.
+
+### Impact Assessment
+
+- **Documentation:** README now accurately represents governance framework
+- **Onboarding:** Clear path for new team members to governance documentation
+
+### Approving Authority
+
+- VP, AI Engineering
+- VP, Technology & Engineering
+
+---
+
 ## [2026-01-15] — Business Continuity, Training & Governance Metrics
 
 ### Added
