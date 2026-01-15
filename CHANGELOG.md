@@ -39,6 +39,51 @@ Entries should be written in past tense (e.g., "Defined..." not "Define...").
 
 ---
 
+## [2026-01-15] — AI Release Gates & Incident Response
+
+### Added
+
+- **AI Release Gates Framework**
+  - Defined 6 mandatory validation gates for AI production deployment
+  - Established gate applicability based on Sensitivity × Consensus classification
+  - Formalized emergency release procedures with accountability
+  - Document: `docs/ai-release-gates.md`
+
+- **Incident Response & Learning Framework**
+  - Formalized incident severity levels and response timelines
+  - Established 5-phase incident response process
+  - Defined blameless post-mortem requirements
+  - Created governance feedback loop from incidents to improvements
+  - Document: `docs/incident-response.md`
+
+- **Governance Health Automation**
+  - Added CI workflow to validate governance artifact integrity
+  - Automated checks for required files, CODEOWNERS, and cross-references
+  - Weekly scheduled validation with PR-triggered checks
+  - Workflow: `.github/workflows/governance-health.yml`
+
+- **Documentation Index Updates**
+  - Added new documents to index.md
+  - Updated onboarding path to include new artifacts
+  - Expanded document classification table
+
+### Rationale
+
+Extended governance control plane to address gaps in AI deployment validation and incident learning. These additions strengthen audit defensibility and create formal feedback loops from operational incidents to governance improvements.
+
+### Impact Assessment
+
+- **Behavioral:** Establishes mandatory pre-production gates for AI systems
+- **Security:** Formalizes incident escalation and containment requirements
+- **Regulatory:** Improves audit trail for AI deployment decisions and incident handling
+
+### Approving Authority
+
+- VP, AI Engineering
+- VP, Technology & Engineering
+
+---
+
 ## [2026-01-01] — Initial Governance Baseline
 
 ### Added
