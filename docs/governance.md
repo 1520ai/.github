@@ -28,7 +28,7 @@ It governs how decisions are made, not just how code is written.
 When conflicts arise, authority is resolved according to the following precedence order, from highest to lowest:
 
 | Level | Authority |
-|-------|-----------|
+| ----- | --------- |
 | 1 | **External Regulatory Authority** — Federal and state healthcare regulations, binding guidance, and audit requirements. |
 | 2 | **1520ai Governance Artifacts** — This document (`docs/governance.md`), security, data protection, and Responsible AI standards. |
 | 3 | **Product-Level Governance** — Product-specific authority documents and explicitly documented invariants (e.g., Hospiclarity). |
@@ -48,15 +48,18 @@ Where decisions span multiple classes, joint authority applies (see [Cross-Cutti
 ### 1. Regulatory & Compliance Decisions
 
 **Examples**
+
 - Interpretation of regulatory requirements
 - Definition of regulatory hard stops
 - Audit defensibility thresholds
 
 **Authority**
+
 - Compliance leadership
 - Clinical governance leadership
 
 **Rules**
+
 - MUST be documented
 - MUST be traceable to regulatory source
 - MUST NOT be overridden by model output or scoring
@@ -64,15 +67,18 @@ Where decisions span multiple classes, joint authority applies (see [Cross-Cutti
 ### 2. Security & Data Protection Decisions
 
 **Examples**
+
 - PHI boundaries
 - Encryption, access control, and audit logging
 - Data movement and retention rules
 
 **Authority**
+
 - Security leadership
 - Engineering leadership (joint)
 
 **Rules**
+
 - Security controls are non-optional
 - Convenience is not a valid exception criterion
 - Exceptions MUST be documented and time-bounded
@@ -80,16 +86,19 @@ Where decisions span multiple classes, joint authority applies (see [Cross-Cutti
 ### 3. AI Behavior & Model Governance
 
 **Examples**
+
 - Model deployment approval
 - Determinism and stability requirements
 - Human-in-the-loop enforcement
 - Drift detection and response
 
 **Authority**
+
 - AI Engineering leadership
 - Product governance (where applicable)
 
 **Rules**
+
 - Models MUST be explainable at decision time
 - Silent adaptation is prohibited
 - Model confidence MUST NOT override authority constraints
@@ -97,15 +106,18 @@ Where decisions span multiple classes, joint authority applies (see [Cross-Cutti
 ### 4. Engineering & Implementation Decisions
 
 **Examples**
+
 - Language and framework selection
 - Architecture patterns
 - Internal APIs and tooling
 
 **Authority**
+
 - Engineering leadership
 - Repository owners (CODEOWNERS)
 
 **Rules**
+
 - MUST conform to higher-level constraints
 - MAY vary by product or repository
 
@@ -179,7 +191,8 @@ Exceptions to governance rules:
 **Temporary exceptions expire by default unless explicitly renewed.**
 
 ### Exception Template (Minimum)
-```
+
+```text
 Exception ID:
 Affected Artifact(s):
 Decision Class(es):
@@ -204,10 +217,10 @@ When disputes arise:
 
 ### Escalation Timing
 
-| Type | Expectation |
-|------|-------------|
-| **Urgent** (security, PHI, regulatory exposure) | Initial review SHOULD occur within one business day. |
-| **Non-urgent** | Review SHOULD occur within a reasonable planning cycle. |
+| Type                                            | Expectation                                                |
+| ----------------------------------------------- | ---------------------------------------------------------- |
+| **Urgent** (security, PHI, regulatory exposure) | Initial review SHOULD occur within one business day.       |
+| **Non-urgent**                                  | Review SHOULD occur within a reasonable planning cycle.    |
 
 If the designated authority is unavailable, escalation proceeds up the authority hierarchy.
 
@@ -244,7 +257,7 @@ Governance is enforced through:
 ## Definitions (Selected)
 
 | Term | Definition |
-|------|------------|
+| ---- | ---------- |
 | **Hard Stop** | A regulatory or security condition that cannot be overridden by scoring or judgment. |
 | **Silent Adaptation** | A system behavior change that occurs without explicit review, logging, or approval. |
 | **Drift Detection** | Monitoring mechanisms that surface changes in model or system behavior for human review. |

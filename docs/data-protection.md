@@ -61,7 +61,7 @@ Accordingly:
 1520ai recognizes the following high-level data classes:
 
 | Classification | Description |
-|----------------|-------------|
+| -------------- | ----------- |
 | **Public / Non-Sensitive** | Information intended for unrestricted use |
 | **Internal / Confidential** | Business, operational, or technical information not intended for public disclosure |
 | **Sensitive / Regulated** | Includes PHI, personal data, and any data subject to contractual or regulatory constraints |
@@ -247,7 +247,7 @@ Temporary deviations from this policy:
 1520ai's approach to data protection ensures that sensitive data is handled responsibly while enabling innovation in regulated environments.
 
 | Principle | Meaning |
-|-----------|---------|
+| --------- | ------- |
 | **Minimization** | Collect only what is required |
 | **Containment** | Data does not move unless necessary |
 | **Accountability** | Every interaction is attributable |

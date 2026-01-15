@@ -89,7 +89,7 @@ New team members working with governance, security, or AI systems SHOULD read:
 ## Document Classification
 
 | Document | Role |
-|----------|------|
+| -------- | ---- |
 | `governance.md` | Authority & precedence |
 | `change-control.md` | Process & mechanics |
 | `responsible-ai.md` | AI intent & posture |
@@ -106,7 +106,7 @@ New team members working with governance, security, or AI systems SHOULD read:
 If a change affects:
 
 | Change Type | Update Required |
-|-------------|-----------------|
+| ----------- | --------------- |
 | Authority, obligations, or constraints | `governance.md` |
 | Process or exception mechanics | `change-control.md` |
 | AI behavior or risk posture | `responsible-ai.md` |

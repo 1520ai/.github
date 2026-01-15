@@ -144,7 +144,7 @@ Changes are tracked in:
 Governance changes are recorded in `CHANGELOG.md` using the following minimum structure:
 
 | Field | Description |
-|-------|-------------|
+| ----- | ----------- |
 | Date | When the change was approved |
 | Artifact(s) affected | Which document(s) changed |
 | Nature of change | Policy, clarification, control tightening, etc. |
@@ -210,4 +210,3 @@ Early revisions should be expected as:
 
 **Silence is not assumed.**
 If a rule is not written here, it is not yet governed.
-```

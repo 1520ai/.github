@@ -146,7 +146,7 @@ Should validate end-to-end scenarios, including interactions with critical syste
 1520ai builds systems for regulated, audit-sensitive environments. Coverage expectations:
 
 | Component Type | Target Coverage |
-|----------------|-----------------|
+| -------------- | --------------- |
 | Core business logic | ≥90% |
 | Security-sensitive components | ≥90% |
 | Data access layers | ≥80% |
@@ -237,7 +237,7 @@ Ensure test backdoors and dump routes are never deployed to production.
 Repositories that process healthcare text SHOULD implement PHI detection controls (e.g., NER- or rules-based tripwires) as pre-commit and CI steps.
 
 **True positives**
-If a real-world identifier is detected, stop work, follow the incident response runbook, open a security ticket, and notify security@1520.ai immediately. PHI detection failures are potential HIPAA violations and must not be ignored.
+If a real-world identifier is detected, stop work, follow the incident response runbook, open a security ticket, and notify <security@1520.ai> immediately. PHI detection failures are potential HIPAA violations and must not be ignored.
 
 **Bypass**
 Only in documented emergencies may detection controls be bypassed; this requires approval and justification per [change-control.md](change-control.md).
