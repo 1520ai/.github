@@ -39,6 +39,55 @@ Entries should be written in past tense (e.g., "Defined..." not "Define...").
 
 ---
 
+## [2026-01-15] — Vendor Management, Audit Coordination & AI Security
+
+### Added
+
+- **Vendor Management Framework**
+  - Defined vendor classification tiers based on data access
+  - Established vendor qualification process and security assessment requirements
+  - Formalized BAA and DPA requirements for third-party relationships
+  - Created vendor registry schema and ongoing monitoring requirements
+  - Document: `docs/vendor-management.md`
+
+- **Audit Coordination Framework**
+  - Defined audit artifact management and versioning requirements
+  - Established audit preparation checklist and evidence collection process
+  - Created finding classification, tracking, and remediation workflows
+  - Formalized compliance attestation requirements and templates
+  - Defined regulatory correspondence management
+  - Document: `docs/audit-coordination.md`
+
+- **AI Security & LLM Threat Defense**
+  - Defined AI-specific threat model including prompt injection and jailbreaking
+  - Established the "lethal trifecta" prohibition (untrusted input + sensitive data + action)
+  - Created input validation and prompt injection prevention requirements
+  - Defined output validation, sanitization, and filtering requirements
+  - Established prompt security and system prompt protection standards
+  - Defined AI security testing requirements and adversarial testing
+  - Document: `docs/ai-security.md`
+
+- **Documentation Index Updates**
+  - Added vendor-management.md, audit-coordination.md, and ai-security.md to index
+  - Expanded document classification and change impact tables
+
+### Rationale
+
+Completed governance control plane with vendor oversight, audit coordination, and AI-specific security requirements. These additions address remaining gaps for enterprise-grade healthcare AI governance.
+
+### Impact Assessment
+
+- **Behavioral:** Establishes vendor qualification and audit preparation requirements
+- **Security:** Formalizes AI/LLM-specific threat defense requirements
+- **Regulatory:** Strengthens audit coordination and compliance attestation capabilities
+
+### Approving Authority
+
+- VP, AI Engineering
+- VP, Technology & Engineering
+
+---
+
 ## [2026-01-15] — Model Registry, Data Lineage & Exception Automation
 
 ### Added
