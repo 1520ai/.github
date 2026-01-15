@@ -6,6 +6,8 @@
 [![HIPAA Aligned](https://img.shields.io/badge/HIPAA-Aligned-blue)](https://github.com/1520ai/.github/blob/main/docs/data-protection.md)
 [![Responsible AI](https://img.shields.io/badge/Responsible_AI-Framework-green)](https://github.com/1520ai/.github/blob/main/docs/responsible-ai.md)
 
+> Turning complexity into insight, and insight into action.
+
 We build intelligent systems that make healthcare safer, simpler, and more human. Our technology helps healthcare organizations see their workforce, data, and operations in a way that finally makes sense.
 
 ## What We Do
@@ -22,12 +24,13 @@ Our products support clinical, compliance, and operational decision-making. They
 
 ## Our Approach
 
-| Principle | Description |
-| --------- | ----------- |
-| **Human judgment remains primary** | Systems support decision-making, they do not replace it |
+**Human judgment remains primary.** This isn't a tagline—it's our foundation. Every system we build is designed to support clinical, regulatory, and professional decision-making, never to replace it. In healthcare, AI succeeds only when people trust it.
+
+| Principle | What It Means |
+| --------- | ------------- |
 | **Determinism over ambiguity** | Explainable, auditable behavior over opaque optimization |
-| **Security and privacy by design** | Safeguards designed in from the start |
-| **Purpose-driven intelligence** | Every model begins with ethical intent |
+| **Security and privacy by design** | Safeguards designed in from the start, not layered on later |
+| **Purpose-driven intelligence** | Every model begins with ethical intent and respect for human decision-making |
 
 ## Technical Standards
 
@@ -40,7 +43,7 @@ We maintain rigorous, public governance standards for AI systems in healthcare:
 | [AI Security](https://github.com/1520ai/.github/blob/main/docs/ai-security.md) | LLM threat defense, prompt injection prevention |
 | [Data Protection](https://github.com/1520ai/.github/blob/main/docs/data-protection.md) | PHI boundaries and privacy requirements |
 
-View our complete [governance documentation](https://github.com/1520ai/.github/blob/main/docs/index.md).
+All governance changes are tracked in our [Changelog](https://github.com/1520ai/.github/blob/main/CHANGELOG.md). View the complete [governance documentation](https://github.com/1520ai/.github/blob/main/docs/index.md).
 
 ## Who We Are
 
