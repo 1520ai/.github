@@ -1,5 +1,10 @@
 # 1520ai — Organization Standards & Governance
 
+[![Governance Health](https://github.com/1520ai/.github/actions/workflows/governance-health.yml/badge.svg)](https://github.com/1520ai/.github/actions/workflows/governance-health.yml)
+[![Link Validation](https://github.com/1520ai/.github/actions/workflows/link-validation.yml/badge.svg)](https://github.com/1520ai/.github/actions/workflows/link-validation.yml)
+[![Markdown Lint](https://github.com/1520ai/.github/actions/workflows/markdown-lint.yml/badge.svg)](https://github.com/1520ai/.github/actions/workflows/markdown-lint.yml)
+[![Changelog Validation](https://github.com/1520ai/.github/actions/workflows/changelog-validation.yml/badge.svg)](https://github.com/1520ai/.github/actions/workflows/changelog-validation.yml)
+
 This repository is the authoritative control plane for how 1520ai designs, builds, reviews, secures, and governs software—especially AI systems operating in regulated healthcare environments.
 
 All 1520ai repositories are expected to conform to the standards defined here unless an explicit, documented exception exists.
