@@ -22,67 +22,92 @@ It is an operational and governance artifact.
 
 ---
 
-## What Lives Here (Authoritative)
+## Documentation Index
 
-This repository includes the following organization-wide artifacts:
+For the complete catalog of governance documents, see:
 
-### Governance & Authority
+**[docs/index.md](docs/index.md)** — Authoritative index of all governance artifacts
 
-- **[docs/governance.md](docs/governance.md)**
-  Organizational authority model, precedence rules, and decision ownership.
+The index provides:
 
-- **[docs/change-control.md](docs/change-control.md)**
-  How governance, security, and AI standards are proposed, reviewed, approved, and versioned.
-
-### Security & Compliance
-
-- **[SECURITY.md](SECURITY.md)**
-  Baseline security expectations aligned with HIPAA and SOC 2.
-
-- **[docs/data-protection.md](docs/data-protection.md)**
-  Data handling, PHI boundaries, and privacy-by-design requirements.
-
-### Responsible AI
-
-- **[docs/responsible-ai.md](docs/responsible-ai.md)**
-  Guardrails for explainability, determinism, human oversight, and validation.
-
-### Contribution & Review
-
-- **[CONTRIBUTING.md](CONTRIBUTING.md)**
-  Expectations for pull requests, documentation, tests, and review discipline.
-
-- **[CODEOWNERS](CODEOWNERS)**
-  Binding ownership and approval requirements.
-
-### Templates & Workflows
-
-- [Issue templates](.github/ISSUE_TEMPLATE/)
-- [Pull request templates](.github/PULL_REQUEST_TEMPLATE/)
-- [Shared GitHub Actions workflows](.github/workflows/)
-
-> **Note:** Some artifacts may initially exist as placeholders.
-> Missing artifacts are treated as explicit gaps, not implied behavior.
+- Document hierarchy and relationships
+- Binding vs. informational classification
+- Recommended reading order for new team members
+- Change impact guidance
 
 ---
 
-## For New Team Members — Start Here
+## Governance Framework Overview
+
+### Authority & Process
+
+| Document | Purpose |
+| -------- | ------- |
+| [governance.md](docs/governance.md) | Authority hierarchy, decision classes, binding invariants |
+| [change-control.md](docs/change-control.md) | Change proposals, approvals, exception management |
+| [exceptions.md](docs/exceptions.md) | Registry of active governance exceptions |
+| [CHANGELOG.md](CHANGELOG.md) | Append-only record of all governance changes |
+
+### AI Governance
+
+| Document | Purpose |
+| -------- | ------- |
+| [responsible-ai.md](docs/responsible-ai.md) | AI posture, Sensitivity × Consensus risk model |
+| [ai-release-gates.md](docs/ai-release-gates.md) | 6 mandatory validation gates for AI deployment |
+| [model-registry.md](docs/model-registry.md) | Production model tracking and lifecycle |
+| [ai-security.md](docs/ai-security.md) | LLM threats, prompt injection prevention |
+| [data-lineage.md](docs/data-lineage.md) | Data provenance and training dataset documentation |
+
+### Security & Data Protection
+
+| Document | Purpose |
+| -------- | ------- |
+| [SECURITY.md](SECURITY.md) | Security reporting, escalation, incident handling |
+| [data-protection.md](docs/data-protection.md) | PHI boundaries, privacy-by-design requirements |
+
+### Operations
+
+| Document | Purpose |
+| -------- | ------- |
+| [incident-response.md](docs/incident-response.md) | Incident severity, response process, post-mortems |
+| [business-continuity.md](docs/business-continuity.md) | RTO/RPO objectives, disaster recovery procedures |
+
+### Compliance & Audit
+
+| Document | Purpose |
+| -------- | ------- |
+| [audit-coordination.md](docs/audit-coordination.md) | Audit preparation, finding tracking, attestations |
+| [vendor-management.md](docs/vendor-management.md) | Vendor tiers, BAA requirements, third-party governance |
+| [governance-metrics.md](docs/governance-metrics.md) | KPIs, dashboards, compliance reporting |
+
+### Personnel
+
+| Document | Purpose |
+| -------- | ------- |
+| [training-awareness.md](docs/training-awareness.md) | Training matrix, onboarding, compliance tracking |
+
+### Contribution & Enforcement
+
+| Document | Purpose |
+| -------- | ------- |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | PR expectations, review discipline |
+| [CODEOWNERS](CODEOWNERS) | Binding approval requirements |
+
+---
+
+## For New Team Members
 
 If you are new to 1520ai, read these in order:
 
-1. **Governance & Authority**
-   → [docs/governance.md](docs/governance.md)
+1. [governance.md](docs/governance.md) — Authority and non-negotiables
+2. [change-control.md](docs/change-control.md) — How changes happen
+3. [responsible-ai.md](docs/responsible-ai.md) — AI posture and constraints
+4. [ai-release-gates.md](docs/ai-release-gates.md) — AI deployment requirements
+5. [incident-response.md](docs/incident-response.md) — Incident handling process
+6. [SECURITY.md](SECURITY.md) — Security expectations and escalation
+7. [training-awareness.md](docs/training-awareness.md) — Required training
 
-2. **Responsible AI Principles**
-   → [docs/responsible-ai.md](docs/responsible-ai.md)
-
-3. **Security & Data Protection**
-   → [SECURITY.md](SECURITY.md)
-
-4. **Contribution Expectations**
-   → [CONTRIBUTING.md](CONTRIBUTING.md)
-
-These documents explain how decisions are made, who has authority, and what "done" means at 1520ai.
+For the complete onboarding path, see [docs/index.md](docs/index.md).
 
 ---
 
@@ -107,21 +132,37 @@ Standards reflect how healthcare actually operates under time pressure and audit
 
 ---
 
-## AI-Specific Review Gates
+## AI Release Gates
 
-AI-enabled systems at 1520ai are subject to additional review and validation gates, including:
+AI-enabled systems at 1520ai must pass 6 mandatory validation gates before production deployment:
 
-- Model behavior validation
-- Determinism and stability checks
-- Human-in-the-loop enforcement
-- Deployment and rollback controls
+| Gate | Purpose |
+| ---- | ------- |
+| Determinism & Reproducibility | Consistent outputs for identical inputs |
+| Explainability & Transparency | Outputs can be explained to stakeholders |
+| Drift Monitoring | Performance degradation detection |
+| Bias & Fairness Assessment | Demographic performance validation |
+| Rollback Capability | Ability to revert to previous version |
+| Human-in-the-Loop | Appropriate human oversight configured |
 
-These requirements are defined in:
+Gate requirements scale based on Sensitivity × Consensus classification. Full requirements in [ai-release-gates.md](docs/ai-release-gates.md).
 
-- [docs/responsible-ai.md](docs/responsible-ai.md)
-- Product-specific governance documentation (e.g., Hospiclarity)
+---
 
-This repository defines the baseline. Product repositories may impose stricter controls.
+## Automated Governance
+
+This repository includes automated governance validation:
+
+| Workflow | Purpose |
+| -------- | ------- |
+| [governance-health.yml](.github/workflows/governance-health.yml) | Validates all required governance files exist, cross-references valid |
+| [exception-expiration.yml](.github/workflows/exception-expiration.yml) | Alerts on expiring exceptions, fails CI on expired exceptions |
+
+Governance health checks run:
+
+- Weekly (scheduled)
+- On PRs touching governance files
+- On manual trigger
 
 ---
 
@@ -135,13 +176,9 @@ All material changes require:
 - Review by designated CODEOWNERS
 - An entry in the governance changelog
 
-Changes are tracked in:
-
-- **[CHANGELOG.md](CHANGELOG.md)**
+Changes are tracked in [CHANGELOG.md](CHANGELOG.md).
 
 ### Changelog Format
-
-Governance changes are recorded in `CHANGELOG.md` using the following minimum structure:
 
 | Field | Description |
 | ----- | ----------- |
@@ -150,8 +187,6 @@ Governance changes are recorded in `CHANGELOG.md` using the following minimum st
 | Nature of change | Policy, clarification, control tightening, etc. |
 | Impact assessment | Behavioral, security, regulatory, or none |
 | Approver(s) | Who approved the change |
-
-This format supports audit reconstruction and avoids ambiguous or narrative-only change logs.
 
 ---
 
@@ -162,9 +197,9 @@ This format supports audit reconstruction and avoids ambiguous or narrative-only
 - VP, AI Engineering
 - VP, Technology & Engineering
 
-(Defined explicitly in [CODEOWNERS](CODEOWNERS).)
+Defined explicitly in [CODEOWNERS](CODEOWNERS).
 
-In the event of a conflict, **CODEOWNERS is the binding source of truth** for approval and ownership.
+In the event of conflict, **CODEOWNERS is the binding source of truth** for approval and ownership.
 
 ### Questions or Clarifications
 
@@ -200,13 +235,14 @@ This repository governs how we build systems, not how external parties must use 
 
 ## Status
 
-This repository is foundational and evolving.
+This repository is **active and binding**.
 
-Early revisions should be expected as:
+The governance framework includes:
 
-- Governance artifacts are locked
-- Security and AI controls mature
-- Audit-readiness requirements expand
+- 19 governance artifacts
+- 2 automated governance workflows
+- Comprehensive coverage of authority, AI governance, security, operations, compliance, and personnel
 
-**Silence is not assumed.**
-If a rule is not written here, it is not yet governed.
+All updates follow formal change control and are recorded in [CHANGELOG.md](CHANGELOG.md).
+
+**If a rule is not written here, it is not yet governed.**
