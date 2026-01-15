@@ -27,3 +27,4 @@ jobs:
           folder-path: "."
           file-extension: ".md"
           check-modified-files-only: ${{ github.event_name == 'pull_request' && 'yes' || 'no' }}
+          base-branch: "main"
