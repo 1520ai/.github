@@ -39,6 +39,52 @@ Entries should be written in past tense (e.g., "Defined..." not "Define...").
 
 ---
 
+## [2026-01-15] — Business Continuity, Training & Governance Metrics
+
+### Added
+
+- **Business Continuity & Disaster Recovery Framework**
+  - Defined RTO/RPO objectives by system tier
+  - Established AI system classification for BC/DR requirements
+  - Created failover and failback procedures
+  - Defined DR testing requirements and schedules
+  - Document: `docs/business-continuity.md`
+
+- **Training & Awareness Program**
+  - Defined required training matrix by role
+  - Established onboarding requirements and checklists
+  - Created training compliance tracking requirements
+  - Defined awareness program activities (newsletters, phishing simulations)
+  - Document: `docs/training-awareness.md`
+
+- **Governance Metrics & KPIs Framework**
+  - Defined compliance, security, AI, and operational metrics
+  - Established dashboard requirements for different audiences
+  - Created threshold and alerting requirements
+  - Defined reporting cadence and distribution
+  - Document: `docs/governance-metrics.md`
+
+- **Documentation Index Updates**
+  - Added business-continuity.md, training-awareness.md, and governance-metrics.md to index
+  - Expanded document classification and change impact tables
+
+### Rationale
+
+Completed governance control plane documentation to address remaining gaps in business continuity, personnel readiness, and governance visibility. These additions achieve comprehensive coverage for enterprise-grade healthcare AI governance.
+
+### Impact Assessment
+
+- **Behavioral:** Establishes BC/DR and training requirements for all personnel
+- **Operational:** Provides metrics framework for continuous governance monitoring
+- **Regulatory:** Strengthens HIPAA contingency plan and workforce training compliance
+
+### Approving Authority
+
+- VP, AI Engineering
+- VP, Technology & Engineering
+
+---
+
 ## [2026-01-15] — Vendor Management, Audit Coordination & AI Security
 
 ### Added
