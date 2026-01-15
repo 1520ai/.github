@@ -4,7 +4,7 @@
 
 [![Governance Health](https://github.com/1520ai/.github/actions/workflows/governance-health.yml/badge.svg)](https://github.com/1520ai/.github/actions/workflows/governance-health.yml)
 [![HIPAA Aligned](https://img.shields.io/badge/HIPAA-Aligned-blue)](https://github.com/1520ai/.github/blob/main/docs/data-protection.md)
-[![Responsible AI](https://img.shields.io/badge/Responsible_AI-Framework-green)](https://github.com/1520ai/.github/blob/main/docs/responsible-ai.md)
+[![Human-in-the-Loop](https://img.shields.io/badge/Human--in--the--Loop-Required-green)](https://github.com/1520ai/.github/blob/main/docs/responsible-ai.md)
 
 > Turning complexity into insight, and insight into action.
 
