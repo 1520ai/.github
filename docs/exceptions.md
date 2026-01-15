@@ -43,9 +43,40 @@ Exceptions are not policy changes. They are controlled deviations granted to man
 
 ---
 
+## Exception Entry Template
+
+When adding an exception, use the following format:
+
+```markdown
+### EXC-YYYY-NNN: [Brief Title]
+
+| Field | Value |
+| ----- | ----- |
+| Exception ID | EXC-YYYY-NNN |
+| Status | Active / Pending Renewal / Expired |
+| Affected Artifact | [Document or system affected] |
+| Granted | YYYY-MM-DD |
+| Expires | YYYY-MM-DD |
+| Approving PR | #NNN |
+| Approver | [Name/Role] |
+
+**Rationale:** [Why this exception is needed]
+
+**Scope:** [What is covered by this exception]
+
+**Risk Assessment:** [Risks and mitigations]
+
+**Renewal History:** (if applicable)
+- YYYY-MM-DD: [Renewal notes]
+```
+
+---
+
 ## Active Exceptions
 
-**No active exceptions at this time.**
+<!-- Active exceptions are listed below. When an exception expires, move it to the Expired section. -->
+
+_No active exceptions at this time._
 
 ---
 

@@ -63,6 +63,14 @@ The following documents define binding constraints and must be followed.
 - **[ai-release-gates.md](ai-release-gates.md)**
   Defines mandatory validation gates for AI system production deployment.
 
+- **[model-registry.md](model-registry.md)**
+  Defines requirements for tracking deployed AI models and their governance status.
+
+### Data Governance
+
+- **[data-lineage.md](data-lineage.md)**
+  Defines requirements for data provenance, lineage tracking, and training dataset documentation.
+
 ### Operations
 
 - **[incident-response.md](incident-response.md)**
@@ -112,6 +120,8 @@ New team members working with governance, security, or AI systems SHOULD read:
 | `change-control.md` | Process & mechanics |
 | `responsible-ai.md` | AI intent & posture |
 | `ai-release-gates.md` | AI deployment validation |
+| `model-registry.md` | AI model tracking |
+| `data-lineage.md` | Data provenance & lineage |
 | `incident-response.md` | Incident handling & learning |
 | `data-protection.md` | Data & privacy requirements |
 | `SECURITY.md` | Security escalation |
@@ -132,6 +142,8 @@ If a change affects:
 | Process or exception mechanics | `change-control.md` |
 | AI behavior or risk posture | `responsible-ai.md` |
 | AI deployment or release process | `ai-release-gates.md` |
+| AI model tracking or governance | `model-registry.md` |
+| Data provenance or lineage | `data-lineage.md` |
 | Incident handling or escalation | `incident-response.md` |
 | Security handling | `SECURITY.md` |
 | Temporary deviations | `exceptions.md` |

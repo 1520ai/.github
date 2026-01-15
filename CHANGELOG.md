@@ -39,6 +39,51 @@ Entries should be written in past tense (e.g., "Defined..." not "Define...").
 
 ---
 
+## [2026-01-15] — Model Registry, Data Lineage & Exception Automation
+
+### Added
+
+- **AI Model Registry Framework**
+  - Defined schema for tracking deployed AI models
+  - Established model lifecycle states and governance requirements
+  - Integrated with Sensitivity × Consensus classification
+  - Document: `docs/model-registry.md`
+
+- **Data Lineage & Provenance Requirements**
+  - Defined data source documentation requirements
+  - Established transformation tracking standards
+  - Created training dataset registry schema
+  - Defined PHI-specific lineage requirements
+  - Document: `docs/data-lineage.md`
+
+- **Exception Expiration Automation**
+  - Added workflow to check for expiring exceptions
+  - Automatic issue creation for exceptions expiring within 30 days
+  - CI failure on expired exceptions in registry
+  - Updated exception registry with structured entry template
+  - Workflow: `.github/workflows/exception-expiration.yml`
+
+- **Documentation Index Updates**
+  - Added model-registry.md and data-lineage.md to index
+  - Expanded document classification and change impact tables
+
+### Rationale
+
+Extended governance control plane to address gaps in AI model tracking, data provenance, and exception lifecycle management. These additions strengthen audit defensibility and enable automated governance health monitoring.
+
+### Impact Assessment
+
+- **Behavioral:** Establishes mandatory model and data documentation
+- **Security:** Improves traceability for PHI data flows
+- **Regulatory:** Strengthens audit trail for AI model governance and data lineage
+
+### Approving Authority
+
+- VP, AI Engineering
+- VP, Technology & Engineering
+
+---
+
 ## [2026-01-15] — AI Release Gates & Incident Response
 
 ### Added
