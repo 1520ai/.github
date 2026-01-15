@@ -69,4 +69,4 @@ Closes #
 
 ---
 
-**Note:** PRs lacking required documentation will not be merged per [CONTRIBUTING.md](../CONTRIBUTING.md).
+**Note:** PRs lacking required documentation will not be merged per [CONTRIBUTING.md](../../CONTRIBUTING.md).

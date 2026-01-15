@@ -42,7 +42,7 @@ The following documents define binding constraints and must be followed.
 
 ### Registries & History
 
-- **[EXCEPTIONS.md](EXCEPTIONS.md)**
+- **[exceptions.md](exceptions.md)**
   Authoritative registry of all active and expired governance exceptions.
 
 - **[CHANGELOG.md](../CHANGELOG.md)** (repo root)
@@ -82,7 +82,7 @@ New team members working with governance, security, or AI systems SHOULD read:
 2. **[change-control.md](change-control.md)** — how changes happen
 3. **[responsible-ai.md](responsible-ai.md)** — AI posture and constraints
 4. **[SECURITY.md](../SECURITY.md)** — security expectations and escalation
-5. **[EXCEPTIONS.md](EXCEPTIONS.md)** — current deviations from baseline
+5. **[exceptions.md](exceptions.md)** — current deviations from baseline
 
 ---
 
@@ -94,7 +94,7 @@ New team members working with governance, security, or AI systems SHOULD read:
 | `change-control.md` | Process & mechanics |
 | `responsible-ai.md` | AI intent & posture |
 | `SECURITY.md` | Security escalation |
-| `EXCEPTIONS.md` | Exception registry |
+| `exceptions.md` | Exception registry |
 | `CHANGELOG.md` | Historical record |
 | `CODEOWNERS` | Enforcement |
 | `CONTRIBUTING.md` | Contribution rules |

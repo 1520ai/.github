@@ -135,7 +135,7 @@ They exist to manage real-world constraints—not to bypass governance.
 
 All active and historical exceptions are tracked in:
 
-- **[docs/EXCEPTIONS.md](EXCEPTIONS.md)** (append-only registry)
+- **[docs/exceptions.md](exceptions.md)** (append-only registry)
 
 Each exception entry MUST reference:
 

@@ -84,7 +84,7 @@ Established foundational governance infrastructure to support audit defensibilit
 
 Active and historical exceptions are tracked separately in:
 
-- [docs/EXCEPTIONS.md](docs/EXCEPTIONS.md)
+- [docs/exceptions.md](docs/exceptions.md)
 
 Each exception entry references:
 
