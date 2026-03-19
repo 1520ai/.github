@@ -238,6 +238,8 @@ Product repositories MAY define stricter rules, but they:
 - MUST NOT weaken or contradict it
 - SHOULD explicitly list additional constraints
 
+Product repositories MAY refine the 5-level authority hierarchy into a more granular model (e.g., decomposing Level 3 "Product-Level Governance" into regulatory enforcement, canonical output, and evaluation layers) provided the refinement preserves the precedence order: external regulatory authority > org governance > product governance > repo controls > implementation.
+
 ---
 
 ## Enforcement
