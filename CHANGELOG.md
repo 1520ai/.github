@@ -79,6 +79,25 @@ stated so swaps validate structurally.
 
 ---
 
+## [2026-03-19] — Alignment Update from Hospiclarity Platform Audit
+
+### Changed
+
+- **`docs/engineering-operating-standards.md`** — Added single-contributor repository exception for PR review requirements, with compensating controls (CI gates, AI-assisted review, documented transition plan). Addresses pre-team phase where multi-reviewer approval is not feasible.
+- **`docs/governance.md`** — Added guidance that product repositories may refine the 5-level authority hierarchy into a more granular model, provided precedence order is preserved. Reflects Hospiclarity's 7-layer authority graph as a valid refinement.
+
+### Rationale
+
+Cross-referencing the org standards against the Hospiclarity platform codebase (commit `bd7a3d55`) revealed two areas where the org standards didn't accommodate the realities of a pre-team, single-founder product repository. The standards assumed multi-engineer teams and a single authority hierarchy depth. These updates acknowledge valid patterns while preserving governance intent.
+
+### Classification
+
+- Type: Clarification
+- Impact: Low — no existing controls weakened
+- Affected repositories: All (standards are org-wide)
+
+---
+
 ## [2026-01-15] — README Comprehensive Update
 
 ### Changed

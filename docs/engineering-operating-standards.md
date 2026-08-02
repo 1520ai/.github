@@ -142,6 +142,9 @@ For changes that alter how a system decides, enforces, or explains outcomes, upd
 **Code review**
 At least one other engineer must approve every PR. Use small PRs (<400 lines of code) and time-boxed reviews (60–90 minutes) to reduce reviewer fatigue. Larger changes require explicit justification.
 
+**Single-contributor repositories**
+Pre-team repositories (single founder/engineer) MAY use CODEOWNERS self-approval with the following compensating controls: (1) comprehensive CI gates that enforce quality, security, and compliance checks automatically, (2) AI-assisted code review tooling, and (3) documented commitment to transition to multi-reviewer workflow when the second engineer is onboarded. This exception MUST be documented in the repository's `EXCEPTIONS.md` and revisited when team size reaches 2+.
+
 **Checklists**
 Reviewers should work through a checklist covering functionality, readability, security, performance, and tests. Code that touches security-critical areas—authentication, authorization, data validation, cryptography, or API endpoints—requires heightened scrutiny.
 
