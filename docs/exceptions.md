@@ -85,7 +85,7 @@ When adding an exception, use the following format:
 | Affected Artifact | `1520ai/.github` `main` branch ruleset (require last-push approval + 1 review) |
 | Granted | 2026-08-02 |
 | Expires | 2026-11-02 |
-| Approving PR | #PRNUM |
+| Approving PR | #19 |
 | Approver | @jeff1520ai (Organization Owner) |
 
 **Rationale:** `1520ai` is currently a single-active-contributor organization; the other repository members are not reliably available to provide the second-party approval the `main` ruleset requires. Blocking all governance-repo maintenance on an unavailable reviewer is impractical during this pre-team phase. This exception invokes the single-contributor-repository provision in [engineering-operating-standards.md](engineering-operating-standards.md).
