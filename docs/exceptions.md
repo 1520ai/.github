@@ -3,7 +3,7 @@
 **Status:** Active
 **Scope:** Organization-wide
 **Maintained by:** Designated CODEOWNERS
-**Last Reviewed:** 2026-01-01
+**Last Reviewed:** 2026-08-02
 
 ---
 
@@ -76,7 +76,29 @@ When adding an exception, use the following format:
 
 <!-- Active exceptions are listed below. When an exception expires, move it to the Expired section. -->
 
-_No active exceptions at this time._
+### EXC-2026-001: Single-Contributor Self-Approval on `1520ai/.github`
+
+| Field | Value |
+| ----- | ----- |
+| Exception ID | EXC-2026-001 |
+| Status | Active |
+| Affected Artifact | `1520ai/.github` `main` branch ruleset (require last-push approval + 1 review) |
+| Granted | 2026-08-02 |
+| Expires | 2026-11-02 |
+| Approving PR | #PRNUM |
+| Approver | @jeff1520ai (Organization Owner) |
+
+**Rationale:** `1520ai` is currently a single-active-contributor organization; the other repository members are not reliably available to provide the second-party approval the `main` ruleset requires. Blocking all governance-repo maintenance on an unavailable reviewer is impractical during this pre-team phase. This exception invokes the single-contributor-repository provision in [engineering-operating-standards.md](engineering-operating-standards.md).
+
+**Scope:** An `OrganizationAdmin` bypass actor (mode: always) is present on the `1520ai/.github` `main` ruleset, allowing the organization owner to merge their own pull requests without a second approval. The ruleset's other protections remain fully enforced for every actor: required pull request, no direct pushes, no branch deletion, no force-push, and all required status checks. Non-admin contributors still require a second-party approval.
+
+**Risk Assessment:** Residual risk (one person merging their own change to org governance) is mitigated by the compensating controls the standard requires:
+
+1. Comprehensive automated CI gates on every PR — markdown lint, link validation, changelog validation, governance-artifact validation, and CodeQL — all of which must pass before merge.
+2. AI-assisted code review on changes.
+3. A documented commitment to remove this exception and return to mandatory second-party review once a second active engineer is onboarded.
+
+**Revocation trigger:** This exception MUST be revoked (the bypass actor removed from the ruleset) when the organization reaches two or more active engineers, or at expiry, whichever comes first. Renewal requires re-review and an updated risk assessment.
 
 ---
 

@@ -39,6 +39,27 @@ Entries should be written in past tense (e.g., "Defined..." not "Define...").
 
 ---
 
+## [2026-08-02] — Documented Owner-Bypass Governance Exception (EXC-2026-001)
+
+### Changed
+
+- **`docs/exceptions.md`** — Registered **EXC-2026-001**: single-contributor self-approval on the `1520ai/.github` `main` branch ruleset (an `OrganizationAdmin` bypass actor), invoking the single-contributor-repository provision of `engineering-operating-standards.md`. Recorded a Last Reviewed date.
+
+### Rationale
+
+The `main` ruleset requires an approving review from someone other than the last pusher. With `1520ai` effectively single-contributor and other members unavailable, the organization owner added an `OrganizationAdmin` bypass to keep governance-repo maintenance unblocked. Per the engineering standard, such a self-approval exception MUST be documented with compensating controls — this entry does so, converting an otherwise-undocumented override into a sanctioned, time-bounded, auditable exception.
+
+### Impact Assessment
+
+- **Access & identity:** the owner may self-merge on `1520ai/.github`; every other ruleset protection and required check remains enforced, and non-admin contributors still require second-party approval
+- **Auditability:** the bypass is now registered, time-bounded (expires 2026-11-02), and carries an explicit revocation trigger (active engineers ≥ 2)
+
+### Approving Authority
+
+- Primary Owner / Organization Owner (via pull-request review under change-control)
+
+---
+
 ## [2026-08-02] — Refreshed Engineering Standards & Model Registry for Currency
 
 ### Changed
