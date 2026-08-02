@@ -2,6 +2,7 @@
 
 **Status:** Active
 **Effective Date:** 2026-01-01
+**Last Reviewed:** 2026-08-02
 **Scope:** Organization-wide
 **Audience:** All engineers, contributors, and technical reviewers
 
@@ -14,6 +15,12 @@ These engineering standards establish baseline expectations for all contributors
 All engineers are expected to follow these standards in addition to any product-specific requirements and governance controls.
 
 **This document defines how we build. Governance documents define what we are allowed to build.**
+
+**Organizing principle: a standard that can't fail a build is a preference.** Every
+standard below should resolve to an enforced control — a merge gate, a scheduled
+drill, or an access policy — so quality never depends on anyone remembering. Where a
+repository cannot yet enforce a standard mechanically, that gap is itself tracked as
+visible debt with an owner and a date (see *No silent debt*, §5).
 
 ---
 
@@ -43,6 +50,30 @@ Product repositories MAY define stricter engineering standards, but they:
 5. **Human judgment remains primary** — AI assists but never enforces regulatory decisions
 6. **Security issues are incidents** — Report immediately; do not quietly fix
 7. **Test what matters** — Prioritize coverage of core logic and security-critical paths
+
+---
+
+## Enforcement Classes — where the standards get their teeth
+
+Every 1520ai product ships behind the same classes of enforced control. Most stop a
+merge outright; the rest run as continuous policies and scheduled drills. **The
+specific tools vary by project; the categories and the baseline bars do not.** A
+product repository MAY set stricter bars but MUST NOT weaken these.
+
+| Class | What runs | Baseline bar |
+| ----- | --------- | ------------ |
+| **Correctness** | Unit & integration suites, golden fixtures, mutation testing | 0 golden-case regressions to merge |
+| **Types & quality** | Strict static typing, complexity ceiling, coverage floor, patch coverage, linting | Complexity ≤ 15 · ≥ 90% coverage on changed lines · coverage floor per §3.2 |
+| **PHI & privacy** | PHI tripwires, log scanning, leak-path detection | Zero-tolerance: one leak path fails the build |
+| **Security supply chain** | Dependency scanning, dynamic app testing, signed images | Critical CVEs patched ≤ 7 days (bands in `SECURITY.md`) |
+| **Compliance & traceability** | Generated-doc sync, requirement coverage, honest-green checks | Zero doc-drift tolerated |
+| **Resilience & operations** | Disaster-recovery drills, migration safety, backup freshness | RTO < 4h · RPO < 1h |
+| **Access & identity** | Least-privilege prod access, MFA, append-only human audit log | MFA required · short idle-session timeout |
+
+Each product maps these classes to concrete mechanisms and records its measured
+proof points in its own repository (see *Adopting This in a New Repository*). The org
+baseline is the floor; the flagship platform's live instantiation — with per-standard
+mechanisms, owners, and measured figures — is its root `STANDARDS.md`.
 
 ---
 
@@ -275,6 +306,12 @@ Hard stops always require human review. Clear escalation paths must be defined i
 **Monitoring is observational**
 Monitoring tools detect anomalies but never modify decisions. Their role is to inform, not enforce.
 
+**No silent debt**
+Every shortcut, deferral, or unenforced standard is visible: it carries an owner and a
+deadline, and the build fails when that deadline lapses unrenewed. Nothing "temporary"
+quietly becomes permanent. Track debt in a machine-readable registry with CI-enforced
+target dates, not in comments or memory.
+
 ---
 
 ## 6. Model and AI Usage
@@ -347,6 +384,28 @@ These standards are enforced through:
 - Audit and incident review
 
 **Failure to follow engineering standards in security-critical or governance-affecting areas is treated as a system risk, not a stylistic preference.**
+
+---
+
+## Adopting This in a New Repository
+
+A new 1520ai product inherits this baseline by default. To make the inheritance real
+rather than nominal:
+
+1. Reference this document from the repository root (a `STANDARDS.md` that points here
+   and lists any stricter product-specific bars).
+2. Stand up the seven Enforcement Classes above as CI gates **before** writing feature
+   code — even as thin, near-empty checks that grow with the codebase. A gate added
+   later rarely catches what it would have caught from the start.
+3. Wire a debt registry with CI-enforced target dates (*No silent debt*, §5).
+4. Add a tiered `CODEOWNERS` so authority- and compliance-affecting paths require a
+   named owner (*Change is governed* — §5 binding invariants, [governance.md](governance.md)).
+5. Put every threshold in one enforced place and generate any status docs from it
+   (One source of truth) — do not hand-maintain the numbers.
+6. Record measured proof points from the new project's own history — never inherit
+   another project's figures.
+
+The flagship platform's root `STANDARDS.md` is a worked example of this instantiation.
 
 ---
 
