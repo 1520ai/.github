@@ -2,6 +2,7 @@
 
 **Status:** Active
 **Effective Date:** 2026-01-15
+**Last Reviewed:** 2026-08-02
 **Scope:** All AI-enabled systems
 **Audience:** AI/ML teams, engineering, compliance, auditors
 
@@ -73,18 +74,22 @@ Each model entry MUST include the following fields:
 
 ### 4.1 Required Fields
 
+The examples below use a generic placeholder model, not any specific product's
+model — product registries fill these with their own entries.
+
 | Field | Description | Example |
 | ----- | ----------- | ------- |
-| Model ID | Unique identifier | `hospiclarity-summarizer-v2` |
-| Model Name | Human-readable name | Hospiclarity Document Summarizer |
-| Version | Current production version | `2.1.0` |
-| Purpose | What the model does | Summarizes clinical documents for compliance review |
+| Model ID | Unique identifier | `<product>-deid-ner-v1` |
+| Model Name | Human-readable name | Document De-identification NER |
+| Version | Current production version | `1.4.0` |
+| Purpose | What the model does | Detects and redacts PHI identifiers in free-text fields |
+| Decision Role | Enforcing / Advisory / Auxiliary — see §4.4 | Auxiliary |
 | Sensitivity | Per responsible-ai.md matrix | High |
 | Consensus | Per responsible-ai.md matrix | High |
 | Classification | Matrix outcome | Handle With Care |
-| Owner | Team or individual responsible | AI Engineering |
-| Approver | Who approved production deployment | VP, AI Engineering |
-| Approval Date | When deployment was approved | 2026-01-10 |
+| Owner | Team or individual responsible | Platform Engineering |
+| Approver | Who approved production deployment | Security Lead |
+| Approval Date | When deployment was approved | YYYY-MM-DD |
 | Status | Current operational status | Active / Deprecated / Suspended |
 
 ### 4.2 Conditional Fields
@@ -108,6 +113,27 @@ Each model entry MUST include the following fields:
 | Resource Requirements | Compute/memory requirements |
 | Dependencies | External services or models |
 | Expiration | If model has planned deprecation |
+
+### 4.4 Decision Role and Model Independence
+
+Every registered model MUST declare its **Decision Role**, and the registry MUST
+record whether the product's binding regulatory or safety decision depends on it:
+
+| Decision Role | Definition | Registry obligation |
+| ------------- | ---------- | ------------------- |
+| **Enforcing** | The model's output determines or gates a binding regulatory/safety outcome | Prohibited unless a deterministic control sits between the model and the outcome. Per [governance.md](governance.md), probabilistic models MUST NOT autonomously enforce decisions. |
+| **Advisory** | The model's output is presented to a human or a downstream report, but a human or deterministic layer owns the decision | Record the **Decision Dependence**: does the binding output change if this model changes? Prefer *No* (model-independent) by construction. |
+| **Auxiliary** | The model supports internal tooling (de-identification, monitoring, extraction, summarization) and is not in any decision path | Record data access and PHI handling; no decision-dependence claim needed. |
+
+**Model independence is the target state for anything near a regulated decision.**
+Where a product's binding output (a categorical status, a hard stop, an eligibility
+determination) is computed by deterministic logic and a model only produces advisory
+or auxiliary output, the decision is **model-independent by construction** — a model
+version change cannot alter the regulated outcome. Registries SHOULD state this
+explicitly for enforcement-adjacent models so a swap can be validated structurally
+rather than by experiment. *(Flagship reference: the categorical DEH decision is
+computed from deterministic gates and is independent of the generative model, which is
+advisory only — see the product's ADR-074.)*
 
 ---
 
@@ -133,6 +159,8 @@ Each model entry MUST include the following fields:
 | Consensus | Low / High |
 | Classification | Standardize / Explore / Handle With Care / Avoid |
 | PHI Access | Yes / No / Indirect |
+| Decision Role | Enforcing / Advisory / Auxiliary |
+| Decision Dependence | Does the binding output change if this model changes? Yes / No (model-independent) / N/A |
 
 ### Governance
 
@@ -340,11 +368,11 @@ The following section tracks organization-wide models that are not product-speci
 
 ### Active Models
 
-_No organization-level models currently registered._
+*No organization-level models currently registered.*
 
 ### Deprecated Models
 
-_No deprecated models._
+*No deprecated models.*
 
 ---
 
