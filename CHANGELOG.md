@@ -39,6 +39,46 @@ Entries should be written in past tense (e.g., "Defined..." not "Define...").
 
 ---
 
+## [2026-08-02] — Refreshed Engineering Standards & Model Registry for Currency
+
+### Changed
+
+- **docs/engineering-operating-standards.md**
+  - Added the organizing principle "a standard that can't fail a build is a preference"
+  - Added an **Enforcement Classes** table (Correctness, Types & quality, PHI & privacy,
+    Security supply chain, Compliance & traceability, Resilience & operations, Access &
+    identity) with product-agnostic baseline bars
+  - Added a **No silent debt** binding invariant (visible shortcuts with owner + CI-enforced deadline)
+  - Added an **Adopting This in a New Repository** section (stand up enforcement classes before feature code)
+  - Recorded a Last Reviewed date
+- **docs/model-registry.md**
+  - Replaced the product-specific placeholder example (`hospiclarity-summarizer-v2`) with a generic one (`<product>-deid-ner-v1`) so the org schema bakes in no single product's model
+  - Added **Decision Role** (Enforcing / Advisory / Auxiliary) as a required field and to the entry template
+  - Added §4.4 **Decision Role and Model Independence** — enforcement-adjacent models must record whether the binding output is model-independent by construction
+  - Recorded a Last Reviewed date
+
+### Rationale
+
+Both documents had drifted from current practice (frozen 2026-01-15) while the flagship
+product's engineering standards advanced. This refresh pulls the flagship's mechanized
+"enforced, not stated" framing up to the org baseline and removes a fictional product
+model from the registry schema, ahead of sibling products inheriting these standards.
+The Decision Role / model-independence addition captures a load-bearing lesson: a model
+may be registered yet sit outside the binding regulatory decision path, which should be
+stated so swaps validate structurally.
+
+### Impact Assessment
+
+- **Standards:** org baseline now expresses enforcement classes and bars explicitly; no bar was weakened
+- **Model governance:** registries must classify each model's decision role; no existing entry is invalidated
+- **Onboarding:** new repositories get a concrete adoption checklist
+
+### Approving Authority
+
+- Primary Owner / Platform Engineering (via pull-request review under change-control)
+
+---
+
 ## [2026-01-15] — README Comprehensive Update
 
 ### Changed
