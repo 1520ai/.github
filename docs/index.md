@@ -115,8 +115,8 @@ The following files enforce governance via GitHub mechanisms:
 - **[CODEOWNERS](../CODEOWNERS)**
   Defines required approvers for governance and security artifacts.
 
-- **[CONTRIBUTING.md](../CONTRIBUTING.md)**
-  Defines how changes are proposed, reviewed, and merged.
+- **[governance-contributing.md](governance-contributing.md)**
+  Defines how changes to this repository are proposed, reviewed, and merged.
 
 These files are considered **operational controls**, not explanatory documentation.
 
@@ -158,7 +158,7 @@ New team members working with governance, security, or AI systems SHOULD read:
 | `exceptions.md` | Exception registry |
 | `CHANGELOG.md` | Historical record |
 | `CODEOWNERS` | Enforcement |
-| `CONTRIBUTING.md` | Contribution rules |
+| `governance-contributing.md` | Contribution rules (this repository) |
 
 ---
 

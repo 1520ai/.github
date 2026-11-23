@@ -12,7 +12,7 @@ body:
         Before submitting, please review:
         - [docs/governance.md](../docs/governance.md) — Authority and precedence
         - [docs/change-control.md](../docs/change-control.md) — Change process
-        - [CONTRIBUTING.md](../CONTRIBUTING.md) — Contribution requirements
+        - [docs/governance-contributing.md](../docs/governance-contributing.md) — Contribution requirements
 
   - type: dropdown
     id: change-type
