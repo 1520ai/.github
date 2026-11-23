@@ -39,6 +39,28 @@ Entries should be written in past tense (e.g., "Defined..." not "Define...").
 
 ---
 
+## [2026-11-23] — Renewed Owner-Bypass Governance Exception (EXC-2026-001)
+
+### Changed
+
+- **`docs/exceptions.md`** — Renewed **EXC-2026-001** (single-contributor self-approval on the `1520ai/.github` `main` ruleset) to 2027-02-23. Recorded the lapse from 2026-11-02 to 2026-11-23, the one pull request (#20) merged under the bypass during it, a renewal review, an updated risk assessment, and a reworded revocation trigger for the renewed period. Original entry text retained. Updated the Last Reviewed date.
+
+### Rationale
+
+The exception expired on 2026-11-02 while the bypass actor remained on the ruleset, leaving an undocumented override in place. Renewal restores a documented, time-bounded basis for it. The renewal review also corrects the record: the ruleset enforces no required status checks, the Governance Health Check had not run since 2026-05-25, and the Exception Expiration Check had been disabled for inactivity (re-enabled 2026-11-23).
+
+### Impact Assessment
+
+- **Access & identity:** unchanged — the owner may self-merge on `1520ai/.github`; non-admin contributors still require second-party approval
+- **Auditability:** the lapse and the merge made during it are recorded; the exception is again time-bounded
+- **Revocation trigger:** changed from "two or more active engineers in the organization" to "a second engineer assigned to maintain or review this repository"; the organization now has a second active engineer on a separate product repository, so the original wording is met as written
+
+### Approving Authority
+
+- Primary Owner / Organization Owner (via pull-request review under change-control)
+
+---
+
 ## [2026-11-23] — Separated the Organization Default CONTRIBUTING from the Governance-Repository Process
 
 ### Changed
