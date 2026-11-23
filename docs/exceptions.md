@@ -3,7 +3,7 @@
 **Status:** Active
 **Scope:** Organization-wide
 **Maintained by:** Designated CODEOWNERS
-**Last Reviewed:** 2026-08-02
+**Last Reviewed:** 2026-11-23
 
 ---
 
@@ -81,11 +81,11 @@ When adding an exception, use the following format:
 | Field | Value |
 | ----- | ----- |
 | Exception ID | EXC-2026-001 |
-| Status | Active |
+| Status | Active (renewed 2026-11-23) |
 | Affected Artifact | `1520ai/.github` `main` branch ruleset (require last-push approval + 1 review) |
 | Granted | 2026-08-02 |
-| Expires | 2026-11-02 |
-| Approving PR | #19 |
+| Expires | 2027-02-23 |
+| Approving PR | #19 (granted), #21 (renewed) |
 | Approver | @jeff1520ai (Organization Owner) |
 
 **Rationale:** `1520ai` is currently a single-active-contributor organization; the other repository members are not reliably available to provide the second-party approval the `main` ruleset requires. Blocking all governance-repo maintenance on an unavailable reviewer is impractical during this pre-team phase. This exception invokes the single-contributor-repository provision in [engineering-operating-standards.md](engineering-operating-standards.md).
@@ -99,6 +99,21 @@ When adding an exception, use the following format:
 3. A documented commitment to remove this exception and return to mandatory second-party review once a second active engineer is onboarded.
 
 **Revocation trigger:** This exception MUST be revoked (the bypass actor removed from the ruleset) when the organization reaches two or more active engineers, or at expiry, whichever comes first. Renewal requires re-review and an updated risk assessment.
+
+**Renewal History:**
+
+- 2026-11-23: Renewed to 2027-02-23 by the Organization Owner (PR #21). The original expiry of 2026-11-02 passed without renewal, so the exception was lapsed from 2026-11-02 to 2026-11-23. The text above is retained as originally granted; the findings and terms below govern the renewed period.
+
+**Renewal review (2026-11-23):**
+
+1. **Lapse.** The bypass actor was not removed from the ruleset at expiry. One pull request (#20, a Clarification moving contribution guidance) was merged by the owner under the bypass on 2026-11-23, during the lapse. No other change reached `main` between 2026-08-02 and that merge.
+2. **Why the lapse went unnoticed.** The scheduled Exception Expiration Check had been disabled by GitHub for repository inactivity and raised no notice. It was re-enabled on 2026-11-23.
+3. **Organization size.** The organization now has a second active engineer, working on a separate product repository. Read literally, the original revocation trigger ("two or more active engineers") is met. The owner's determination on renewal is that the condition the exception exists for is unchanged: no second engineer is assigned to maintain, or review changes to, this repository.
+4. **Compensating controls, as observed rather than as declared.** The `main` ruleset requires a pull request and blocks deletion and force-push, but it lists no required status checks, so CI results are not enforced at merge; they are run and read by the owner. On PR #20 markdown lint, link validation, changelog validation and CodeQL ran and passed. The Governance Health Check (governance-artifact validation) did not run on PR #20 and had last run on 2026-05-25. The original risk assessment's statement that all of these "must pass before merge" described intent, not ruleset enforcement.
+
+**Updated risk assessment:** Residual risk is unchanged in kind (one person merging their own change to organization governance) and somewhat higher than originally stated, because the automated checks are advisory at merge and two of them were not running. Mitigations for the renewed period: the expiration check is re-enabled; every pull request merged under the bypass must show the lint, link, changelog and governance-health checks passing before merge; and the change volume is low (one merge in the preceding three months).
+
+**Revocation trigger (renewed period):** This exception MUST be revoked (the bypass actor removed from the ruleset) when a second engineer is assigned to maintain or review this repository, or at expiry on 2027-02-23, whichever comes first.
 
 ---
 
