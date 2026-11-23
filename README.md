@@ -95,7 +95,8 @@ The index provides:
 
 | Document | Purpose |
 | -------- | ------- |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | PR expectations, review discipline |
+| [docs/governance-contributing.md](docs/governance-contributing.md) | PR expectations and review discipline for this repository |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Organization default shown on repositories without their own |
 | [CODEOWNERS](CODEOWNERS) | Binding approval requirements |
 
 ---

@@ -55,7 +55,7 @@ jobs:
             echo "CHANGELOG.md was updated"
           else
             echo "::error::Governance files were modified but CHANGELOG.md was not updated."
-            echo "::error::Per CONTRIBUTING.md, all governance changes require a changelog entry."
+            echo "::error::Per docs/governance-contributing.md, all governance changes require a changelog entry."
             echo "::error::Add 'skip-changelog' label only for trivial non-governance changes."
             exit 1
           fi

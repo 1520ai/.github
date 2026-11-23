@@ -39,6 +39,30 @@ Entries should be written in past tense (e.g., "Defined..." not "Define...").
 
 ---
 
+## [2026-11-23] — Separated the Organization Default CONTRIBUTING from the Governance-Repository Process
+
+### Changed
+
+- **`CONTRIBUTING.md`** — Replaced with a short organization default. It states that each repository sets its own workflow, that a repository's own `CONTRIBUTING.md` replaces the default, and that `SECURITY.md` and `docs/engineering-operating-standards.md` apply everywhere.
+- **`docs/governance-contributing.md`** — New location of the previous `CONTRIBUTING.md` text (the contribution process for `1520ai/.github`). Content unchanged apart from relative links and a scope line stating it does not apply to product repositories.
+- **`README.md`, `docs/index.md`, governance-change PR and issue templates, `changelog-validation.yml`, `governance-health.yml`** — References repointed to the new location; the health check now requires both files.
+
+### Rationale
+
+GitHub displays this repository's `CONTRIBUTING.md` on every organization repository that lacks its own. The previous file was scoped to this repository and described control-plane change handling (change classification, exception registry), so it appeared on a new product repository as if it were that team's required development process. Classified as a **Clarification**: no rule, authority, or enforcement behavior changed.
+
+### Impact Assessment
+
+- **Behavioral:** none for this repository — the same process governs it, at a new path
+- **Other repositories:** repositories without their own `CONTRIBUTING.md` now display the generic default instead of the governance process
+- **Security / Regulatory:** none — `SECURITY.md` is unchanged and remains organization-wide
+
+### Approving Authority
+
+- Primary Owner / Organization Owner (via pull-request review under change-control)
+
+---
+
 ## [2026-08-02] — Documented Owner-Bypass Governance Exception (EXC-2026-001)
 
 ### Changed

@@ -51,6 +51,7 @@ jobs:
             "docs/business-continuity.md"
             "docs/training-awareness.md"
             "docs/governance-metrics.md"
+            "docs/governance-contributing.md"
             "SECURITY.md"
             "CONTRIBUTING.md"
             "CODEOWNERS"
