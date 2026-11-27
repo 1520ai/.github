@@ -39,6 +39,30 @@ Entries should be written in past tense (e.g., "Defined..." not "Define...").
 
 ---
 
+## [2026-11-24] — Required Status Checks Enforced on `main`
+
+### Changed
+
+- **`main` required-checks ruleset (repository setting)** — Added a ruleset targeting the default branch that requires four status checks to pass before merge: Lint Markdown Files, Check Markdown Links, Check Changelog Updated, and Validate Governance Artifacts. The ruleset has no bypass actors.
+- **`.github/workflows/markdown-lint.yml`, `link-validation.yml`, `governance-health.yml`** — Removed the pull-request path filters so each required check reports on every pull request.
+- **`docs/exceptions.md`** — Appended a renewal-history note to **EXC-2026-001** recording that its compensating controls are now enforced at merge.
+
+### Rationale
+
+The 2026-11-23 renewal review of EXC-2026-001 found that the checks cited as compensating controls were advisory: the ruleset required none of them and one had not been running. Classified as a **Control Tightening**. The path filters were removed because a required check that does not run leaves a pull request unmergeable.
+
+### Impact Assessment
+
+- **Access & identity:** the owner bypass still covers the second-party approval requirement only; it no longer permits merging with a failing or missing check
+- **Operations:** a failing external link or lint error now blocks every merge until fixed; changing that requires an explicit ruleset edit by an organization admin
+- **Auditability:** the exception's compensating controls are enforced by configuration rather than by practice
+
+### Approving Authority
+
+- Primary Owner / Organization Owner (via pull-request review under change-control)
+
+---
+
 ## [2026-11-23] — Renewed Owner-Bypass Governance Exception (EXC-2026-001)
 
 ### Changed

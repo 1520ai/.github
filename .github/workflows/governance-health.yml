@@ -5,15 +5,10 @@ on:
   schedule:
     - cron: '0 9 * * 1'  # Every Monday at 9am UTC
 
-  # Run on PRs touching governance files
+  # Runs on every PR (no path filter): this is a required status check on main,
+  # and a required check that never reports blocks the merge.
   pull_request:
-    paths:
-      - 'docs/**'
-      - 'CODEOWNERS'
-      - 'SECURITY.md'
-      - 'CONTRIBUTING.md'
-      - 'CHANGELOG.md'
-      - '.github/workflows/governance-health.yml'
+    branches: [main]
 
   # Allow manual trigger
   workflow_dispatch:

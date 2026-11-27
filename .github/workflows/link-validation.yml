@@ -5,10 +5,10 @@ on:
     branches: [main]
     paths:
       - "**.md"
+  # Runs on every PR (no path filter): this is a required status check on main,
+  # and a required check that never reports blocks the merge.
   pull_request:
     branches: [main]
-    paths:
-      - "**.md"
 
 jobs:
   check-links:

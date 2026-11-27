@@ -3,7 +3,7 @@
 **Status:** Active
 **Scope:** Organization-wide
 **Maintained by:** Designated CODEOWNERS
-**Last Reviewed:** 2026-11-23
+**Last Reviewed:** 2026-11-24
 
 ---
 
@@ -103,6 +103,7 @@ When adding an exception, use the following format:
 **Renewal History:**
 
 - 2026-11-23: Renewed to 2027-02-23 by the Organization Owner (PR #21). The original expiry of 2026-11-02 passed without renewal, so the exception was lapsed from 2026-11-02 to 2026-11-23. The text above is retained as originally granted; the findings and terms below govern the renewed period.
+- 2026-11-24: Compensating controls made enforced (PR #22). A separate ruleset on `main`, with no bypass actors, now requires four status checks to pass before any merge, including merges by the owner under this exception: Lint Markdown Files, Check Markdown Links, Check Changelog Updated, and Validate Governance Artifacts. Those workflows now run on every pull request. This supersedes finding 4 of the renewal review below for merges after this date. The exception itself is unchanged: it still covers only the second-party approval requirement.
 
 **Renewal review (2026-11-23):**
 
